@@ -47,8 +47,8 @@ product2 = tf.matmul(mat3,mat4)
 # Session has to closed for releasing the resources
 # or With can be used to close the session after running it
 with tf.Session() as sess:
-
-	summary_writer = tf.train.SummaryWriter('/tmp/mnist_logs', sess.graph)
+	#merged_summary_op = tf.merge_all_summaries()
+	#summary_writer = tf.train.SummaryWriter('/tmp/mnist_logs', sess.graph)
 	# Should initialize the varibles first
 	sess.run(init_var)
 	# updating and running
