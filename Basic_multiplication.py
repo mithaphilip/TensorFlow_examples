@@ -31,6 +31,12 @@ product = tf.matmul(mat1,mat2)
 # initialize all variables object
 init_var = tf.initialize_all_variables()
 
+# Defining placehoders for playing with feed
+mat3 = tf.placeholder("float",shape=(1,2))
+mat4 = tf.placeholder("float",shape=(2,1))
+product2 = tf.matmul(mat3,mat4)
+
+
 # *******************
 # Execution phase
 # *******************
@@ -41,13 +47,20 @@ init_var = tf.initialize_all_variables()
 with tf.Session() as sess:
 	# Should initialize the varibles first
 	sess.run(init_var)
-
+	# updating and running
 	for _ in range(3):
 		# Running the product between mat1 and mat2
 		print sess.run(product)
 		# Updating mat2 matrix by adding a bias matrix to it
 		sess.run(spidy_update)
+
+	for _ in range(3):	
 		# Or to run them simultaneously use fetch
 		# this command provides us with list of numpy arrays
-		# print sess.run([product,spidy_update])
+		print sess.run([product,spidy_update])
+
+	for _ in range(3):
+		# Or to temperoryly feed the placeholders with an tensor	
+		print sess.run(, feed_dict={mat3: [[2,10]],mat4: [[10],[2]]})
+		
 
