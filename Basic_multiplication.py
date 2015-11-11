@@ -37,6 +37,8 @@ mat4 = tf.placeholder("float",shape=(2,1))
 product2 = tf.matmul(mat3,mat4)
 
 
+
+
 # *******************
 # Execution phase
 # *******************
@@ -45,6 +47,8 @@ product2 = tf.matmul(mat3,mat4)
 # Session has to closed for releasing the resources
 # or With can be used to close the session after running it
 with tf.Session() as sess:
+
+	summary_writer = tf.train.SummaryWriter('/tmp/mnist_logs', sess.graph)
 	# Should initialize the varibles first
 	sess.run(init_var)
 	# updating and running
@@ -61,6 +65,6 @@ with tf.Session() as sess:
 
 	for _ in range(3):
 		# Or to temperoryly feed the placeholders with an tensor	
-		print sess.run(, feed_dict={mat3: [[2,10]],mat4: [[10],[2]]})
+		print sess.run(product2, feed_dict={mat3: [[2,10]],mat4: [[10],[2]]})
 		
 
