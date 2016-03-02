@@ -12,7 +12,7 @@ jupyter notebook --generate-config
 
 cat > ~/.jupyter/jupyter_notebook_config.py <<EOF
 c.NotebookApp.ip = '*'
-c.NotebookApp.password = u'sha1:e87a5e965b49:d25800fd63a764769a06cc116c92f26d3c$
+c.NotebookApp.password = u'sha1:89a8405a716d:9413d56668a938f26e05114b0e8ba8e73e99741f'
 c.NotebookApp.open_browser = False
 
 # It is a good idea to set a known, fixed port for server access
